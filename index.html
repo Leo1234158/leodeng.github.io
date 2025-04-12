@@ -35,14 +35,15 @@
       width: 320px;
       height: 320px;
       transition: transform 1s ease;
-      transform: scale(0.7); /* 默认大小 */
+      transform: scale(0.7);
       flex-shrink: 0;
       z-index: 1;
       position: relative;
     }
 
     .star-shape.cv-star {
-      transform: scale(2.1) !important; /* 黑色星星三倍大小 */
+      transform: scale(2.1) !important;
+      animation: none !important; /* 不旋转 */
     }
 
     .star-shape svg, .shape-wrapper svg {
@@ -110,6 +111,7 @@
         width: 260px;
         height: 260px;
       }
+
       .star-caption, .shape-caption {
         font-size: 1.2rem;
       }
@@ -121,7 +123,7 @@
 
   <div class="circle-column">
 
-    <!-- 白色星星 -->
+    <!-- 白星星 -->
     <div class="star-container">
       <a href="https://leo-c-deng.github.io/leochaodeng.html" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
@@ -137,13 +139,13 @@
       <a href="https://leo-c-deng.github.io/cv.html" target="_blank" class="star-shape cv-star" onclick="growStar(event)">
         <svg viewBox="0 0 100 100">
           <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="grey" stroke="black" stroke-width="2" />
+            fill="black" stroke="white" stroke-width="2" />
         </svg>
       </a>
       <div class="star-caption">CV</div>
     </div>
 
-    <!-- 三角+圆 -->
+    <!-- 三角圆 -->
     <div class="shape-container">
       <div class="shape-wrapper triangle-circle">
         <svg viewBox="0 0 100 100">
@@ -174,3 +176,30 @@
         if (poly) poly.classList.add('fade-to-black');
       }
     });
+
+    function growStar(event) {
+      event.preventDefault();
+
+      const star = event.currentTarget;
+
+      // 全屏放大并居中
+      star.style.position = 'fixed';
+      star.style.top = '50%';
+      star.style.left = '50%';
+      star.style.zIndex = '9999';
+      star.style.transform = 'scale(12) translate(-50%, -50%)';
+      star.style.transition = 'transform 1s ease, top 1s ease, left 1s ease';
+
+      const poly = document.getElementById('star-poly');
+      poly.classList.add('fade-to-black');
+
+      localStorage.setItem('cvStarGrown', 'true');
+
+      const targetURL = star.getAttribute("href");
+      setTimeout(() => {
+        window.location.href = targetURL;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

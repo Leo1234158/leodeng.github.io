@@ -6,7 +6,7 @@
   <style>
     body {
       font-family: sans-serif;
-      background: linear-gradient(#f5f5f5, #e0e0e0); /* ✅ 灰色渐变背景 */
+      background: red; /* 红色背景测试 */
       color: #222;
       padding: 60px 20px;
       max-width: 1000px;
@@ -17,14 +17,14 @@
 
     .circle-row {
       display: flex;
-      flex-direction: column; /* 垂直排列 */
+      flex-direction: column;
       align-items: center;
-      gap: 60px; /* 间距 */
+      gap: 60px;
       margin-top: 40px;
     }
 
     .circle-wrapper {
-      width: 480px; /* 大尺寸按钮 */
+      width: 480px;
       height: 480px;
       border-radius: 50%;
       overflow: hidden;
@@ -79,7 +79,6 @@
 </head>
 
 <body>
-
   <h1>Leo Deng</h1>
 
   <div class="circle-row">
@@ -98,7 +97,7 @@
       </div>
     </a>
 
-    <!-- 五角星按钮（嵌入英文简介） -->
+    <!-- 五角星按钮中包含英文个人简介 -->
     <a href="highlight.html" target="_blank" class="star-shape">
       <svg viewBox="0 0 100 100" class="star-svg">
         <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
@@ -106,4 +105,21 @@
         <foreignObject x="10" y="20" width="80" height="70">
           <div xmlns="http://www.w3.org/1999/xhtml"
                style="font-size:5px; line-height:1.3; text-align:center; padding:4px; overflow-y:auto; height:100%;">
-            <strong
+            <strong>Leo Deng</strong><br/>
+            is a Chinese artist currently living and working in Australia. His practice explores the tension between
+            structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material
+            experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built
+            forms carry historical, ideological, and political weight. Drawing from Bauhaus formalism while resisting
+            clarity, he creates systems that constantly shift between order and breakdown. Cross-cultural experience deeply
+            informs his practice, particularly in how forms persist—and destabilize—within uncertain conditions.
+          </div>
+        </foreignObject>
+      </svg>
+    </a>
+
+  </div>
+
+  <div class="caption">点击任意按钮查看作品页面</div>
+</body>
+</html>
+

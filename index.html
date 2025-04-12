@@ -37,13 +37,13 @@
       flex-shrink: 0;
       z-index: 1;
       position: relative;
-      transition: transform 1s ease;
+      transition: transform 0.5s ease;
       transform: scale(0.7);
     }
 
     .star-shape.cv-star {
-      transform: scale(2.1);       /* 初始放大三倍 */
-      animation: none !important;  /* 不旋转 */
+      transform: scale(2.1);
+      animation: none !important;
     }
 
     .star-shape svg, .shape-wrapper svg {
@@ -119,7 +119,7 @@
 
   <div class="circle-column">
 
-    <!-- 白色星星 -->
+    <!-- 白星星 -->
     <div class="star-container">
       <a href="https://leo-c-deng.github.io/leochaodeng.html" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
@@ -165,23 +165,47 @@
   <script>
     function growStar(event) {
       event.preventDefault();
-
       const star = event.currentTarget;
-
-      // 居中放大到全屏（从 2.1 → 18）
-      star.style.position = 'fixed';
-      star.style.top = '50%';
-      star.style.left = '50%';
-      star.style.zIndex = '9999';
-      star.style.transform = 'translate(-50%, -50%) scale(18)';
-      star.style.transition = 'transform 1s ease, top 1s ease, left 1s ease';
-
       const poly = document.getElementById('star-poly');
-      if (poly) poly.classList.add('fade-to-black');
 
-      setTimeout(() => {
-        window.location.href = star.getAttribute('href');
-      }, 1000);
+      // 缩小准备“逃跑”
+      star.style.transition = 'transform 0.3s ease';
+      star.style.transform = 'scale(0.3)';
+
+      // 跳跃动作
+      const jumps = [
+        { x: 40, y: -30 },
+        { x: -50, y: 50 },
+        { x: 30, y: 30 }
+      ];
+
+      let i = 0;
+      function hop() {
+        if (i >= jumps.length) {
+          // 居中放大到全屏
+          star.style.position = 'fixed';
+          star.style.top = '50%';
+          star.style.left = '50%';
+          star.style.zIndex = '9999';
+          star.style.transform = 'translate(-50%, -50%) scale(18)';
+          star.style.transition = 'transform 1s ease, top 1s ease, left 1s ease';
+
+          if (poly) poly.classList.add('fade-to-black');
+
+          setTimeout(() => {
+            window.location.href = star.getAttribute('href');
+          }, 1000);
+          return;
+        }
+
+        const dx = jumps[i].x;
+        const dy = jumps[i].y;
+        star.style.transform = `translate(${dx}px, ${dy}px) scale(0.3)`;
+        i++;
+        setTimeout(hop, 150);
+      }
+
+      setTimeout(hop, 300);
     }
   </script>
 </body>

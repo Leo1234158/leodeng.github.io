@@ -2,36 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Leo's Animation</title>
+  <title>Leo’s Site</title>
   <style>
     body {
-      background-color: black;
+      background: black;
+      margin: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: start;
       height: 100vh;
+      overflow: hidden;
     }
 
     .star {
-      width: 100px;
-      height: 100px;
-      background: white;
-      clip-path: polygon(
-        50% 0%, 61% 35%, 98% 35%,
-        68% 57%, 79% 91%, 50% 70%,
-        21% 91%, 32% 57%, 2% 35%,
-        39% 35%
-      );
-      transform: scale(1.1); /* 初始状态略大 */
+      font-size: 40px;
+      margin: 20px;
+    }
+
+    .white-star {
+      color: white;
+      animation: spin 4s linear infinite;
+    }
+
+    .black-star {
+      color: black;
+      transform: scale(1.1);
       transition: transform 0.3s ease;
     }
 
-    .star:hover {
-      transform: scale(1.3); /* hover 时大很多 */
+    .black-star:hover {
+      transform: scale(1.3);
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <div class="star"></div>
+  <div class="star white-star">★</div>
+  <div class="star black-star">★</div>
 </body>
 </html>

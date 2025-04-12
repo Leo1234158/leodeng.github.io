@@ -31,19 +31,16 @@
     }
 
     .star-shape, .shape-wrapper {
-      display: inline-block;
       width: 320px;
       height: 320px;
+      transition: transform 0.5s ease;
       flex-shrink: 0;
       z-index: 1;
       position: relative;
-      transition: transform 0.5s ease;
-      transform: scale(0.7);
     }
 
     .star-shape.cv-star {
-      transform: scale(2.1);
-      animation: none !important;
+      animation: none !important; /* 不旋转 */
     }
 
     .star-shape svg, .shape-wrapper svg {
@@ -168,27 +165,6 @@
       const star = event.currentTarget;
       const poly = document.getElementById('star-poly');
 
-      // 先缩小
+      // 开始缩小
       star.style.transition = 'transform 0.3s ease';
-      star.style.transform = 'scale(0.3)';
-
-      // 疯狂跳动
-      const jumps = [
-        { x: 100, y: -100 },
-        { x: -150, y: 120 },
-        { x: 120, y: -130 },
-        { x: -100, y: 150 }
-      ];
-
-      let i = 0;
-      function hop() {
-        if (i >= jumps.length) {
-          // 最终放大到全屏
-          star.style.position = 'fixed';
-          star.style.top = '50%';
-          star.style.left = '50%';
-          star.style.zIndex = '9999';
-          star.style.transform = 'translate(-50%, -50%) scale(18)';
-          star.style.transition = 'transform 1s ease, top 1s ease, left 1s ease';
-
-          if (poly) poly.classList.add('fade-to-black
+      star.style.transform

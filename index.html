@@ -35,7 +35,7 @@
       width: 320px;
       height: 320px;
       transition: transform 1s ease;
-      transform: scale(1);
+      transform: scale(0.7);
       flex-shrink: 0;
       z-index: 1;
       position: relative;
@@ -133,7 +133,7 @@
 
     <!-- CV 星星按钮（点击变大、变黑、跳转 https://leo-c-deng.github.io/cv.html） -->
     <div class="star-container">
-      <a href="https://leo-c-deng.github.io/cv.html" target="_blank" class="star-shape" onclick="growStar(event)">
+      <a href="https://leo-c-deng.github.io/cv.html" target="_blank" class="star-shape" style="transform: scale(1.3);" onclick="growStar(event)">
         <svg viewBox="0 0 100 100" class="star-svg">
           <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
             fill="grey" stroke="black" stroke-width="2" />
@@ -183,7 +183,7 @@
   event.preventDefault();
 
   const star = event.currentTarget;
-  star.style.transform = 'scale(3)';
+  star.style.transform = 'scale(1.3)';
 
   const poly = document.getElementById('star-poly');
   poly.classList.add('fade-to-black');

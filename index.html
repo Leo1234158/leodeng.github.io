@@ -4,20 +4,16 @@
   <meta charset="UTF-8" />
   <title>Leo Deng – 艺术家主页</title>
   <style>
-  body {
-    font-family: sans-serif;
-    background: linear-gradient(#f5f5f5, #e0e0e0);
-    color: #222;
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: auto;
-    line-height: 1.6;
-    text-align: center;
-  }
-
-  /* 其它样式... */
-</style>
-
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(#f5f5f5, #e0e0e0); /* ✅ 灰色渐变背景 */
+      color: #222;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 1.6;
+      text-align: center;
+    }
 
     .circle-row {
       display: flex;
@@ -28,7 +24,7 @@
     }
 
     .circle-wrapper {
-      width: 480px;
+      width: 480px; /* 大尺寸按钮 */
       height: 480px;
       border-radius: 50%;
       overflow: hidden;
@@ -66,7 +62,7 @@
     }
 
     .caption {
-      font-size: 0.95rem;
+      font-size: 1.2rem;
       color: #777;
       margin-top: 10px;
       margin-bottom: 30px;
@@ -75,14 +71,15 @@
     @media screen and (max-width: 600px) {
       .circle-wrapper,
       .star-shape {
-        width: 300px;
-        height: 300px;
+        width: 320px;
+        height: 320px;
       }
     }
   </style>
 </head>
 
 <body>
+
   <h1>Leo Deng</h1>
 
   <div class="circle-row">
@@ -101,12 +98,12 @@
       </div>
     </a>
 
-    <!-- 五角星按钮 + 英文简介 -->
+    <!-- 五角星按钮（嵌入英文简介） -->
     <a href="highlight.html" target="_blank" class="star-shape">
       <svg viewBox="0 0 100 100" class="star-svg">
         <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
           fill="white" stroke="black" stroke-width="2" />
         <foreignObject x="10" y="20" width="80" height="70">
-          <div xmlns="http://www.w3.org/1999/xhtml" style="font-size:5px; line-height:1.3; text-align:center; padding:4px; overflow-y:auto; height:100%;">
-            <strong>Leo Deng</strong><br/>
-            is a Chinese artist currently living and working in Australia. His
+          <div xmlns="http://www.w3.org/1999/xhtml"
+               style="font-size:5px; line-height:1.3; text-align:center; padding:4px; overflow-y:auto; height:100%;">
+            <strong

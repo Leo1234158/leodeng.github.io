@@ -37,6 +37,13 @@
       flex-shrink: 0;
       z-index: 1;
       position: relative;
+      transition: transform 1s ease;
+      transform: scale(0.7);
+    }
+
+    .star-shape.cv-star {
+      transform: scale(2.1);       /* 初始放大三倍 */
+      animation: none !important;  /* 不旋转 */
     }
 
     .star-shape svg, .shape-wrapper svg {
@@ -46,10 +53,6 @@
 
     .star-shape.back-star {
       animation: spinToCircle 2s linear infinite;
-    }
-
-    .star-shape.cv-star {
-      animation: none !important;
     }
 
     .star-caption, .shape-caption {
@@ -116,7 +119,7 @@
 
   <div class="circle-column">
 
-    <!-- 白星星 -->
+    <!-- 白色星星 -->
     <div class="star-container">
       <a href="https://leo-c-deng.github.io/leochaodeng.html" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
@@ -165,12 +168,12 @@
 
       const star = event.currentTarget;
 
-      // 居中 + 放大
+      // 居中放大到全屏（从 2.1 → 18）
       star.style.position = 'fixed';
       star.style.top = '50%';
       star.style.left = '50%';
-      star.style.transform = 'translate(-50%, -50%) scale(12)';
       star.style.zIndex = '9999';
+      star.style.transform = 'translate(-50%, -50%) scale(18)';
       star.style.transition = 'transform 1s ease, top 1s ease, left 1s ease';
 
       const poly = document.getElementById('star-poly');

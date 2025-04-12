@@ -29,27 +29,6 @@
       margin-top: 40px;
     }
 
-    .circle-wrapper {
-      width: 480px;
-      height: 480px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid #000;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .circle-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .circle-wrapper:hover {
-      transform: scale(1.05);
-    }
-
     .star-container {
       display: flex;
       flex-direction: column;
@@ -61,6 +40,7 @@
       width: 480px;
       height: 480px;
       transition: transform 1s ease;
+      transform: scale(3); /* 初始放大 3 倍 */
       flex-shrink: 0;
       z-index: 1;
       position: relative;
@@ -71,8 +51,8 @@
       height: 100%;
     }
 
-    .star-shape.expanding {
-      transform: scale(5);
+    .star-shape.shrinking {
+      transform: scale(1); /* 缩小回正常大小 */
     }
 
     .star-caption {
@@ -91,21 +71,17 @@
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
 
-    .rainbow-animate {
-      animation: rainbow-fill 1s forwards;
+    .fade-to-black {
+      fill: grey;
+      animation: toBlack 1s forwards;
     }
 
-    @keyframes rainbow-fill {
-      0%   { fill: white; }
-      20%  { fill: red; }
-      40%  { fill: orange; }
-      60%  { fill: yellow; }
-      80%  { fill: blue; }
+    @keyframes toBlack {
+      0%   { fill: grey; }
       100% { fill: black; }
     }
 
     @media screen and (max-width: 600px) {
-      .circle-wrapper,
       .star-shape {
         width: 320px;
         height: 320px;
@@ -123,26 +99,12 @@
 
   <div class="circle-row">
 
-    <!-- 猫猫按钮（暂时隐藏） -->
-    <a href="leochaodeng.html" target="_blank" style="display: none;">
-      <div class="circle-wrapper">
-        <img src="cat.png" alt="猫猫作品" />
-      </div>
-    </a>
-
-    <!-- 蝙蝠侠按钮（暂时隐藏） -->
-    <a href="secondpage.html" target="_blank" style="display: none;">
-      <div class="circle-wrapper">
-        <img src="batman.png" alt="Batman作品" />
-      </div>
-    </a>
-
     <!-- 星星按钮 -->
     <div class="star-container">
-      <a href="cv.html" target="_blank" class="star-shape" onclick="expandStar(event)">
+      <a href="cv.html" target="_blank" class="star-shape" onclick="shrinkStar(event)">
         <svg viewBox="0 0 100 100" class="star-svg">
           <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="white" stroke="black" stroke-width="2" />
+            fill="grey" stroke="black" stroke-width="2" />
         </svg>
       </a>
       <div class="star-caption">CV</div>
@@ -153,16 +115,22 @@
   <div class="caption">点击星星查看作品页面</div>
 
   <script>
-    function expandStar(event) {
+    function shrinkStar(event) {
       event.preventDefault();
 
+      // 背景变白
       document.body.classList.add('white-bg');
-      event.currentTarget.classList.add('expanding');
 
+      // 星星变小
+      const star = event.currentTarget;
+      star.classList.add('shrinking');
+
+      // 星星变黑
       const poly = document.getElementById('star-poly');
-      poly.classList.add('rainbow-animate');
+      poly.classList.add('fade-to-black');
 
-      const targetURL = event.currentTarget.getAttribute("href");
+      // 跳转
+      const targetURL = star.getAttribute("href");
       setTimeout(() => {
         window.location.href = targetURL;
       }, 1000);

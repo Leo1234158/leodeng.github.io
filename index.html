@@ -168,21 +168,22 @@
       const star = event.currentTarget;
       const poly = document.getElementById('star-poly');
 
-      // 缩小准备“逃跑”
+      // 先缩小
       star.style.transition = 'transform 0.3s ease';
       star.style.transform = 'scale(0.3)';
 
-      // 跳跃动作
+      // 疯狂跳动
       const jumps = [
-        { x: 40, y: -30 },
-        { x: -50, y: 50 },
-        { x: 30, y: 30 }
+        { x: 100, y: -100 },
+        { x: -150, y: 120 },
+        { x: 120, y: -130 },
+        { x: -100, y: 150 }
       ];
 
       let i = 0;
       function hop() {
         if (i >= jumps.length) {
-          // 居中放大到全屏
+          // 最终放大到全屏
           star.style.position = 'fixed';
           star.style.top = '50%';
           star.style.left = '50%';
@@ -190,23 +191,4 @@
           star.style.transform = 'translate(-50%, -50%) scale(18)';
           star.style.transition = 'transform 1s ease, top 1s ease, left 1s ease';
 
-          if (poly) poly.classList.add('fade-to-black');
-
-          setTimeout(() => {
-            window.location.href = star.getAttribute('href');
-          }, 1000);
-          return;
-        }
-
-        const dx = jumps[i].x;
-        const dy = jumps[i].y;
-        star.style.transform = `translate(${dx}px, ${dy}px) scale(0.3)`;
-        i++;
-        setTimeout(hop, 150);
-      }
-
-      setTimeout(hop, 300);
-    }
-  </script>
-</body>
-</html>
+          if (poly) poly.classList.add('fade-to-black

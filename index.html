@@ -50,6 +50,10 @@
       transform: scale(3);
     }
 
+    .star-shape.back-star {
+      animation: spinToCircle 4s linear infinite;
+    }
+
     .star-caption, .shape-caption {
       margin-top: 10px;
       font-size: 1.5rem;
@@ -66,6 +70,17 @@
     @keyframes toBlack {
       0%   { fill: grey; }
       100% { fill: black; }
+    }
+
+    @keyframes spinToCircle {
+      0% {
+        transform: rotate(0deg);
+        clip-path: polygon(50% 0%, 61% 35%, 95% 35%, 67% 57%, 78% 90%, 50% 70%, 22% 90%, 33% 57%, 5% 35%, 39% 35%);
+      }
+      100% {
+        transform: rotate(360deg);
+        clip-path: circle(50% at 50% 50%);
+      }
     }
 
     /* 特效一：三角 + 圆 持续旋转 */
@@ -107,7 +122,7 @@
 
     <!-- 白色星星按钮（跳转 leochaodeng.html） -->
     <div class="star-container">
-      <a href="leochaodeng.html" class="star-shape">
+      <a href="leochaodeng.html" class="star-shape back-star">
         <svg viewBox="0 0 100 100" class="star-svg">
           <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
             fill="white" stroke="black" stroke-width="2" />

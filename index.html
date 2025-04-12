@@ -16,7 +16,7 @@
       text-align: center;
     }
 
-    .circle-row {
+    .circle-column {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -32,22 +32,22 @@
 
     .star-shape {
       display: inline-block;
-      width: 480px;
-      height: 480px;
+      width: 320px;
+      height: 320px;
       transition: transform 1s ease;
-      transform: scale(1); /* 初始正常大小 */
+      transform: scale(1);
       flex-shrink: 0;
       z-index: 1;
       position: relative;
     }
 
-    .star-shape.growing {
-      transform: scale(3); /* 点击后放大 */
-    }
-
     .star-shape svg {
       width: 100%;
       height: 100%;
+    }
+
+    .star-shape.growing {
+      transform: scale(3);
     }
 
     .star-caption {
@@ -61,8 +61,7 @@
     .caption {
       font-size: 1.2rem;
       color: #fff;
-      margin-top: 10px;
-      margin-bottom: 30px;
+      margin-top: 20px;
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
 
@@ -78,8 +77,8 @@
 
     @media screen and (max-width: 600px) {
       .star-shape {
-        width: 320px;
-        height: 320px;
+        width: 260px;
+        height: 260px;
       }
 
       .star-caption {
@@ -92,9 +91,20 @@
 <body>
   <h1 style="color: white; text-shadow: 0 0 6px black;">Leo Deng</h1>
 
-  <div class="circle-row">
+  <div class="circle-column">
 
-    <!-- 星星按钮 -->
+    <!-- 白色星星按钮（跳转 leochaodeng.html） -->
+    <div class="star-container">
+      <a href="leochaodeng.html" class="star-shape">
+        <svg viewBox="0 0 100 100" class="star-svg">
+          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+            fill="white" stroke="black" stroke-width="2" />
+        </svg>
+      </a>
+      <div class="star-caption">Back</div>
+    </div>
+
+    <!-- CV 星星按钮（点击变大、变黑、跳转 cv.html） -->
     <div class="star-container">
       <a href="cv.html" target="_blank" class="star-shape" onclick="growStar(event)">
         <svg viewBox="0 0 100 100" class="star-svg">
@@ -107,21 +117,18 @@
 
   </div>
 
-  <div class="caption">点击星星查看作品页面</div>
+  <div class="caption">点击星星查看不同页面</div>
 
   <script>
     function growStar(event) {
       event.preventDefault();
 
-      // 星星放大
       const star = event.currentTarget;
       star.classList.add('growing');
 
-      // 星星变黑
       const poly = document.getElementById('star-poly');
       poly.classList.add('fade-to-black');
 
-      // 跳转
       const targetURL = star.getAttribute("href");
       setTimeout(() => {
         window.location.href = targetURL;

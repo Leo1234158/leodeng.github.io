@@ -1,12 +1,185 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Leo(Chao)Deng</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://leo-c-deng.github.io/"><link rel="alternate" type="application/atom+xml" href="https://leo-c-deng.github.io/feed.xml" title="Leo(Chao)Deng - RSS"><link rel="alternate" type="application/json" href="https://leo-c-deng.github.io/feed.json" title="Leo(Chao)Deng - JSON"><meta property="og:title" content="Leo(Chao)Deng"><meta property="og:site_name" content="Leo(Chao)Deng"><meta property="og:description" content=""><meta property="og:url" content="https://leo-c-deng.github.io/"><meta property="og:type" content="website"><link rel="stylesheet" href="https://leo-c-deng.github.io/assets/css/style.css?v=11bee19e86e8eda2cf9a60efd975666d"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Leo(Chao)Deng","url":"https://leo-c-deng.github.io/"}</script><noscript><style>img[loading] {
-                    opacity: 1;
-                }</style></noscript></head><body class="home-template"><header class="top js-header"><a class="logo" href="https://leo-c-deng.github.io/">Leo(Chao)Deng</a></header><main><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Discover My Blogging Journey: Adventures, Travels, and Hobbies!</h1><p>Join me as I share captivating stories, travel experiences, and dive into the joys of my favorite hobbies.</p><p><a href="#" class="btn">Read more</a></p></div></header></div><div class="wrapper feed"><article class="feed__item feed__item--centered"><div class="feed__content"><header><div class="feed__meta"><a href="https://leo-c-deng.github.io/authors/leo-deng/" class="feed__author">Leo Deng</a> <time datetime="2025-04-12T16:14" class="feed__date">April 12, 2025</time></div><h2 class="feed__title"><a href="https://leo-c-deng.github.io/cv.html">Cv</a></h2></header><p>Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built forms&hellip;</p><a href="https://leo-c-deng.github.io/cv.html" class="readmore feed__readmore">Continue reading...</a></div></article></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright">Powered by Publii</div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://leo-c-deng.github.io/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://leo-c-deng.github.io/assets/js/scripts.min.js?v=ffcbea6c02c8178d10092962b235a5b0"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
-        for (var i = 0; i < images.length; i++) {
-            if (images[i].complete) {
-                images[i].classList.add('is-loaded');
-            } else {
-                images[i].addEventListener('load', function () {
-                    this.classList.add('is-loaded');
-                }, false);
-            }
-        }</script></body></html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leo C Deng – 艺术家主页</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: url('BG.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #222;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .circle-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      margin-top: 40px;
+    }
+
+    .star-container, .shape-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .star-shape, .shape-wrapper {
+      display: inline-block;
+      width: 320px;
+      height: 320px;
+      transition: transform 1s ease;
+      transform: scale(1);
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+    }
+
+    .star-shape svg, .shape-wrapper svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .star-shape.growing {
+      transform: scale(3);
+    }
+
+    .star-shape.back-star {
+      animation: spinToCircle 2s linear infinite;
+    }
+
+    .star-caption, .shape-caption {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .fade-to-black {
+      fill: grey;
+      animation: toBlack 1s forwards;
+    }
+
+    @keyframes toBlack {
+      0%   { fill: grey; }
+      100% { fill: black; }
+    }
+
+    @keyframes spinToCircle {
+      0% {
+        transform: rotate(0deg);
+        clip-path: polygon(50% 0%, 61% 35%, 95% 35%, 67% 57%, 78% 90%, 50% 70%, 22% 90%, 33% 57%, 5% 35%, 39% 35%);
+      }
+      100% {
+        transform: rotate(360deg);
+        clip-path: circle(50% at 50% 50%);
+      }
+    }
+
+    /* 特效一：三角 + 圆 持续旋转 */
+    .shape-wrapper.triangle-circle {
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 特效二：方形 呼吸放缩 */
+    .shape-wrapper.square {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @media screen and (max-width: 600px) {
+      .star-shape, .shape-wrapper {
+        width: 260px;
+        height: 260px;
+      }
+
+      .star-caption, .shape-caption {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: white; text-shadow: 0 0 6px black;">Leo C Deng</h1>
+
+  <div class="circle-column">
+
+    <!-- 白色星星按钮（跳转 https://leo-c-deng.github.io/leochaodeng.html） -->
+    <div class="star-container">
+      <a href="https://leo-c-deng.github.io/leochaodeng.html" class="star-shape back-star">
+        <svg viewBox="0 0 100 100" class="star-svg">
+          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+            fill="white" stroke="black" stroke-width="2" />
+        </svg>
+      </a>
+      <div class="star-caption">Back</div>
+    </div>
+
+    <!-- CV 星星按钮（点击变大、变黑、跳转 https://leo-c-deng.github.io/cv.html） -->
+    <div class="star-container">
+      <a href="https://leo-c-deng.github.io/cv.html" target="_blank" class="star-shape" onclick="growStar(event)">
+        <svg viewBox="0 0 100 100" class="star-svg">
+          <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+            fill="grey" stroke="black" stroke-width="2" />
+        </svg>
+      </a>
+      <div class="star-caption">CV</div>
+    </div>
+
+    <!-- 三角 + 圆 组合图形（旋转特效） -->
+    <div class="shape-container">
+      <div class="shape-wrapper triangle-circle">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="white" stroke="black" stroke-width="2" />
+          <polygon points="50,15 30,85 70,85" fill="white" stroke="black" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="shape-caption">Triangle + Circle</div>
+    </div>
+
+    <!-- 方形图形（呼吸特效） -->
+    <div class="shape-container">
+      <div class="shape-wrapper square">
+        <svg viewBox="0 0 100 100">
+          <rect x="20" y="20" width="60" height="60" fill="white" stroke="black" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="shape-caption">Square</div>
+    </div>
+
+  </div>
+
+  <script>
+    function growStar(event) {
+      event.preventDefault();
+
+      const star = event.currentTarget;
+      star.classList.add('growing');
+
+      const poly = document.getElementById('star-poly');
+      poly.classList.add('fade-to-black');
+
+      const targetURL = star.getAttribute("href");
+      setTimeout(() => {
+        window.location.href = targetURL;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

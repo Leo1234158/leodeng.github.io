@@ -4,14 +4,19 @@
   <meta charset="UTF-8" />
   <title>Leo Deng – 艺术家主页</title>
   <style>
-     body {
+    body {
       font-family: sans-serif;
       background: url('BG.png') no-repeat center center fixed;
-      background-size: cover; /* 背景图全屏适配 */
-     }
- 
+      background-size: cover;
+      color: #222;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-     .circle-row {
+    .circle-row {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,9 +64,10 @@
 
     .caption {
       font-size: 1.2rem;
-      color: #777;
+      color: #fff;
       margin-top: 10px;
       margin-bottom: 30px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
 
     @media screen and (max-width: 600px) {
@@ -75,7 +81,7 @@
 </head>
 
 <body>
-  <h1>Leo Deng</h1>
+  <h1 style="color: white; text-shadow: 0 0 6px black;">Leo Deng</h1>
 
   <div class="circle-row">
 
@@ -118,4 +124,3 @@
   <div class="caption">点击任意按钮查看作品页面</div>
 </body>
 </html>
-

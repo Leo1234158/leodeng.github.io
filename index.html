@@ -8,12 +8,12 @@
       font-family: sans-serif;
       background: url('https://leo-c-deng.github.io/BG.png') no-repeat center center fixed;
       background-size: cover;
-      color: #222;
+      color: #fff;
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
-      line-height: 1.6;
       text-align: center;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
@@ -33,16 +33,12 @@
     }
 
     .star-shape, .shape-wrapper {
-      width: 320px;
-      height: 320px;
+      width: 240px;
+      height: 240px;
       transition: transform 0.5s ease;
       flex-shrink: 0;
       z-index: 1;
       position: relative;
-    }
-
-    .star-shape.cv-star {
-      animation: none !important;
     }
 
     .star-shape svg, .shape-wrapper svg {
@@ -52,16 +48,6 @@
 
     .star-shape.back-star {
       animation: spinToCircle 2s linear infinite;
-    }
-
-    .fade-to-black {
-      fill: grey;
-      animation: toBlack 1s forwards;
-    }
-
-    @keyframes toBlack {
-      0% { fill: grey; }
-      100% { fill: black; }
     }
 
     @keyframes spinToCircle {
@@ -93,8 +79,44 @@
       50% { transform: scale(1.2); }
     }
 
-    .pull-to-center {
-      position: fixed !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50
+    h1 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: white;
+      text-shadow: 0 0 10px black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Leo Chao Deng – 艺术家主页</h1>
+
+  <div class="circle-column">
+    <!-- 星星 -->
+    <div class="star-container">
+      <div class="star-shape back-star">
+        <svg viewBox="0 0 100 100">
+          <polygon points="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35" fill="white" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- 正方形脉冲 -->
+    <div class="shape-container">
+      <div class="shape-wrapper square">
+        <svg viewBox="0 0 100 100">
+          <rect width="100" height="100" fill="white"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 旋转三角形 -->
+    <div class="shape-container">
+      <div class="shape-wrapper triangle-circle">
+        <svg viewBox="0 0 100 100">
+          <polygon points="50,10 90,90 10,90" fill="white"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

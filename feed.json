@@ -2,16 +2,16 @@
     "version": "https://jsonfeed.org/version/1",
     "title": "Leo(Chao)Deng",
     "description": "",
-    "home_page_url": "https://leodeng-art.github.io",
-    "feed_url": "https://leodeng-art.github.io/feed.json",
+    "home_page_url": "https://leo-c-deng.github.io",
+    "feed_url": "https://leo-c-deng.github.io/feed.json",
     "user_comment": "",
     "author": {
         "name": "Leo Deng"
     },
     "items": [
         {
-            "id": "https://leodeng-art.github.io/cv.html",
-            "url": "https://leodeng-art.github.io/cv.html",
+            "id": "https://leo-c-deng.github.io/cv.html",
+            "url": "https://leo-c-deng.github.io/cv.html",
             "title": "Cv",
             "summary": "Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built forms&hellip;",
             "content_html": "<p>Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built forms carry historical, ideological, and political weight. Drawing from Bauhaus formalism while resisting clarity, he creates systems that constantly shift between order and breakdown. Cross-cultural experience deeply informs his practice, particularly in how forms persist—and destabilize—within uncertain conditions.</p>",

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <title>Leo(Chao)Deng</title>
-    <link href="https://leodeng-art.github.io/feed.xml" rel="self" />
-    <link href="https://leodeng-art.github.io" />
+    <link href="https://leo-c-deng.github.io/feed.xml" rel="self" />
+    <link href="https://leo-c-deng.github.io" />
     <updated>2025-04-12T16:20:16+10:00</updated>
     <author>
         <name>Leo Deng</name>
     </author>
-    <id>https://leodeng-art.github.io</id>
+    <id>https://leo-c-deng.github.io</id>
 
     <entry>
         <title>Cv</title>
         <author>
             <name>Leo Deng</name>
         </author>
-        <link href="https://leodeng-art.github.io/cv.html"/>
-        <id>https://leodeng-art.github.io/cv.html</id>
+        <link href="https://leo-c-deng.github.io/cv.html"/>
+        <id>https://leo-c-deng.github.io/cv.html</id>
 
         <updated>2025-04-12T16:14:06+10:00</updated>
             <summary>

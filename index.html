@@ -14,6 +14,7 @@
       margin: auto;
       line-height: 1.6;
       text-align: center;
+      overflow-x: hidden;
     }
 
     .circle-column {
@@ -28,6 +29,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: all 1s ease;
     }
 
     .star-shape, .shape-wrapper {
@@ -40,7 +42,7 @@
     }
 
     .star-shape.cv-star {
-      animation: none !important; /* 不旋转 */
+      animation: none !important;
     }
 
     .star-shape svg, .shape-wrapper svg {
@@ -99,6 +101,14 @@
       50% { transform: scale(1.2); }
     }
 
+    .pull-to-center {
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) scale(0.2) !important;
+      transition: transform 0.8s ease, top 0.8s ease, left 0.8s ease;
+    }
+
     @media screen and (max-width: 600px) {
       .star-shape, .shape-wrapper {
         width: 260px;
@@ -117,7 +127,7 @@
   <div class="circle-column">
 
     <!-- 白星星 -->
-    <div class="star-container">
+    <div class="star-container" id="white-star">
       <a href="https://leo-c-deng.github.io/leochaodeng.html" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
           <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
@@ -128,7 +138,7 @@
     </div>
 
     <!-- 黑色 CV 星星 -->
-    <div class="star-container">
+    <div class="star-container" id="black-star">
       <a href="https://leo-c-deng.github.io/cv.html" class="star-shape cv-star" onclick="growStar(event)">
         <svg viewBox="0 0 100 100">
           <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
@@ -139,7 +149,7 @@
     </div>
 
     <!-- 三角圆 -->
-    <div class="shape-container">
+    <div class="shape-container" id="circle-triangle">
       <div class="shape-wrapper triangle-circle">
         <svg viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="30" fill="white" stroke="black" stroke-width="2" />
@@ -149,7 +159,7 @@
     </div>
 
     <!-- 方形 -->
-    <div class="shape-container" style="position: absolute; top: 55%; left: 13%; transform: translate(-50%, -50%);">
+    <div class="shape-container" id="square-shape" style="position: absolute; top: 55%; left: 13%; transform: translate(-50%, -50%);">
       <div class="shape-wrapper square">
         <svg viewBox="0 0 100 100">
           <rect x="20" y="20" width="60" height="60" fill="white" stroke="black" stroke-width="2" />
@@ -165,7 +175,7 @@
       const star = event.currentTarget;
       const poly = document.getElementById('star-poly');
 
-      // 关键！允许它跳动
+      // 允许跳动
       star.style.position = 'absolute';
       star.style.transition = 'transform 0.3s ease';
       star.style.transform = 'translate(0px, 0px) scale(0.3)';
@@ -180,6 +190,12 @@
       let i = 0;
       function hop() {
         if (i >= jumps.length) {
+          // 吸引其他图形聚到中央
+          document.getElementById("white-star").classList.add("pull-to-center");
+          document.getElementById("circle-triangle").classList.add("pull-to-center");
+          document.getElementById("square-shape").classList.add("pull-to-center");
+
+          // 最终黑星星放大
           star.style.position = 'fixed';
           star.style.top = '50%';
           star.style.left = '50%';

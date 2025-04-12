@@ -171,11 +171,16 @@
   // 页面加载时检查状态
   window.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('cvStarGrown') === 'true') {
-      const star = document.querySelector('[href="https://leo-c-deng.github.io/cv.html"]');
-      if (star) star.classList.add('growing');
-      const poly = document.getElementById('star-poly');
-      if (poly) poly.classList.add('fade-to-black');
-    }
+  const star = document.querySelector('[href="https://leo-c-deng.github.io/cv.html"]');
+  if (star) {
+    star.classList.add('growing');
+    setTimeout(() => {
+      star.classList.remove('growing');
+    }, 1000);
+  }
+  const poly = document.getElementById('star-poly');
+  if (poly) poly.classList.add('fade-to-black');
+}
   });
     function growStar(event) {
   event.preventDefault();

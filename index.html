@@ -24,13 +24,13 @@
       margin-top: 40px;
     }
 
-    .star-container {
+    .shape-container {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .star-shape {
+    .shape-wrapper {
       display: inline-block;
       width: 320px;
       height: 320px;
@@ -41,16 +41,12 @@
       position: relative;
     }
 
-    .star-shape svg {
+    .shape-wrapper svg {
       width: 100%;
       height: 100%;
     }
 
-    .star-shape.growing {
-      transform: scale(3);
-    }
-
-    .star-caption {
+    .shape-caption {
       margin-top: 10px;
       font-size: 1.5rem;
       font-weight: bold;
@@ -58,82 +54,45 @@
       text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
     }
 
-    .caption {
-      font-size: 1.2rem;
-      color: #fff;
-      margin-top: 20px;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    }
-
-    .fade-to-black {
-      fill: grey;
-      animation: toBlack 1s forwards;
-    }
-
-    @keyframes toBlack {
-      0%   { fill: grey; }
-      100% { fill: black; }
-    }
-
     @media screen and (max-width: 600px) {
-      .star-shape {
+      .shape-wrapper {
         width: 260px;
         height: 260px;
       }
 
-      .star-caption {
+      .shape-caption {
         font-size: 1.2rem;
       }
     }
   </style>
 </head>
-
 <body>
   <h1 style="color: white; text-shadow: 0 0 6px black;">Leo Deng</h1>
 
   <div class="circle-column">
 
-    <!-- 白色星星按钮（跳转 leochaodeng.html） -->
-    <div class="star-container">
-      <a href="leochaodeng.html" class="star-shape">
-        <svg viewBox="0 0 100 100" class="star-svg">
-          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="white" stroke="black" stroke-width="2" />
+    <!-- 三角 + 圆 组合图形 -->
+    <div class="shape-container">
+      <div class="shape-wrapper">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="white" stroke="black" stroke-width="2" />
+          <polygon points="50,15 30,85 70,85" fill="white" stroke="black" stroke-width="2" />
         </svg>
-      </a>
-      <div class="star-caption">Back</div>
+      </div>
+      <div class="shape-caption">Triangle + Circle</div>
     </div>
 
-    <!-- CV 星星按钮（点击变大、变黑、跳转 cv.html） -->
-    <div class="star-container">
-      <a href="cv.html" target="_blank" class="star-shape" onclick="growStar(event)">
-        <svg viewBox="0 0 100 100" class="star-svg">
-          <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="grey" stroke="black" stroke-width="2" />
+    <!-- 方形图形 -->
+    <div class="shape-container">
+      <div class="shape-wrapper">
+        <svg viewBox="0 0 100 100">
+          <rect x="20" y="20" width="60" height="60" fill="white" stroke="black" stroke-width="2" />
         </svg>
-      </a>
-      <div class="star-caption">CV</div>
+      </div>
+      <div class="shape-caption">Square</div>
     </div>
 
   </div>
 
-  <div class="caption">点击星星查看不同页面</div>
-
-  <script>
-    function growStar(event) {
-      event.preventDefault();
-
-      const star = event.currentTarget;
-      star.classList.add('growing');
-
-      const poly = document.getElementById('star-poly');
-      poly.classList.add('fade-to-black');
-
-      const targetURL = star.getAttribute("href");
-      setTimeout(() => {
-        window.location.href = targetURL;
-      }, 1000);
-    }
-  </script>
 </body>
 </html>

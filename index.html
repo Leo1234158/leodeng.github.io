@@ -173,12 +173,7 @@
     if (localStorage.getItem('cvStarGrown') === 'true') {
   const star = document.querySelector('[href="https://leo-c-deng.github.io/cv.html"]');
   if (star) {
-    star.classList.add('growing');
-    setTimeout(() => {
-      setTimeout(() => {
-        star.style.transform = 'scale(0.9)';
-      }, 1000);
-    }, 1000);
+    star.style.transform = 'scale(0.9)';
   }
   const poly = document.getElementById('star-poly');
   if (poly) poly.classList.add('fade-to-black');
@@ -204,3 +199,4 @@
   </script>
 </body>
 </html>
+

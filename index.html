@@ -17,18 +17,18 @@
 
 .circle-row {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
+  flex-direction: column; /* 竖排布局 */
+  align-items: center;
+  gap: 60px; /* 增加间距 */
   margin-top: 40px;
 }
 
 .circle-wrapper {
-  width: 240px;
-  height: 240px;
+  width: 480px; /* 按钮宽高扩大一倍 */
+  height: 480px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid #000;
+  border: 3px solid #000;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -46,8 +46,8 @@
 
 .star-shape {
   display: inline-block;
-  width: 240px;
-  height: 240px;
+  width: 480px; /* 按钮宽高扩大一倍 */
+  height: 480px;
   transition: transform 0.3s ease;
   flex-shrink: 0;
 }
@@ -62,20 +62,22 @@
 }
 
 .caption {
-  font-size: 0.95rem;
+  font-size: 1.2rem; /* 增加标题文字大小 */
   color: #777;
   margin-top: 10px;
   margin-bottom: 30px;
 }
 
-/* 手机适配：按钮也要大一点但有间距 */
+/* 手机适配：按钮也变大 */
 @media screen and (max-width: 600px) {
   .circle-wrapper,
   .star-shape {
-    width: 180px;
-    height: 180px;
+    width: 320px; /* 大小翻倍 */
+    height: 320px;
   }
 }
+
+
 
     
   </style>

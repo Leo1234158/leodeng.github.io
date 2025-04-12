@@ -3,10 +3,30 @@
     <title>Leo(Chao)Deng</title>
     <link href="https://leodeng-art.github.io/feed.xml" rel="self" />
     <link href="https://leodeng-art.github.io" />
-    <updated>1970-01-01T10:00:00+10:00</updated>
+    <updated>2025-04-12T16:14:06+10:00</updated>
     <author>
         <name>Leo Deng</name>
     </author>
     <id>https://leodeng-art.github.io</id>
 
+    <entry>
+        <title>Cv</title>
+        <author>
+            <name>Leo Deng</name>
+        </author>
+        <link href="https://leodeng-art.github.io/cv.html"/>
+        <id>https://leodeng-art.github.io/cv.html</id>
+
+        <updated>2025-04-12T16:14:06+10:00</updated>
+            <summary>
+                <![CDATA[
+                    Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built forms&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built forms carry historical, ideological, and political weight. Drawing from Bauhaus formalism while resisting clarity, he creates systems that constantly shift between order and breakdown. Cross-cultural experience deeply informs his practice, particularly in how forms persist—and destabilize—within uncertain conditions.</p>
+            ]]>
+        </content>
+    </entry>
 </feed>

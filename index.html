@@ -49,8 +49,10 @@
       display: inline-block;
       width: 480px;
       height: 480px;
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
       flex-shrink: 0;
+      z-index: 1;
+      position: relative;
     }
 
     .star-shape svg {
@@ -60,6 +62,11 @@
 
     .star-shape:hover polygon {
       fill: orange;
+    }
+
+    .star-shape.expanded {
+      transform: scale(4);
+      z-index: 999;
     }
 
     .caption {
@@ -99,28 +106,28 @@
       </div>
     </a>
 
-    <!-- 五角星按钮跳转至 cv.html -->
-    <a href="cv.html" target="_blank" class="star-shape">
+    <!-- 五角星按钮，显示“CV”，点击后放大并跳转 -->
+    <a href="cv.html" target="_blank" class="star-shape" onclick="expandStar(event)">
       <svg viewBox="0 0 100 100" class="star-svg">
         <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
           fill="white" stroke="black" stroke-width="2" />
-        <foreignObject x="10" y="20" width="80" height="70">
-          <div xmlns="http://www.w3.org/1999/xhtml"
-               style="font-size:5px; line-height:1.3; text-align:center; padding:4px; overflow-y:auto; height:100%;">
-            <strong>Leo Deng</strong><br/>
-            is a Chinese artist currently living and working in Australia. His practice explores the tension between
-            structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material
-            experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built
-            forms carry historical, ideological, and political weight. Drawing from Bauhaus formalism while resisting
-            clarity, he creates systems that constantly shift between order and breakdown. Cross-cultural experience deeply
-            informs his practice, particularly in how forms persist—and destabilize—within uncertain conditions.
-          </div>
-        </foreignObject>
+        <text x="50%" y="55%" text-anchor="middle" font-size="12" fill="black" font-weight="bold">CV</text>
       </svg>
     </a>
 
   </div>
 
   <div class="caption">点击任意按钮查看作品页面</div>
+
+  <script>
+    function expandStar(event) {
+      event.preventDefault();
+      const star = event.currentTarget;
+      star.classList.add('expanded');
+      setTimeout(() => {
+        window.location.href = star.href;
+      }, 500);
+    }
+  </script>
 </body>
 </html>

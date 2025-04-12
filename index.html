@@ -35,7 +35,7 @@
       width: 320px;
       height: 320px;
       transition: transform 1s ease;
-      transform: scale(0.7);
+      transform: scale(0.7); /* 默认缩小 */
       flex-shrink: 0;
       z-index: 1;
       position: relative;
@@ -47,7 +47,7 @@
     }
 
     .star-shape.growing {
-  transform: scale(1.3);
+      transform: scale(1.3);
     }
 
     .star-shape.back-star {
@@ -83,7 +83,6 @@
       }
     }
 
-    /* 特效一：三角 + 圆 持续旋转 */
     .shape-wrapper.triangle-circle {
       animation: spin 4s linear infinite;
     }
@@ -93,7 +92,6 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* 特效二：方形 呼吸放缩 */
     .shape-wrapper.square {
       animation: pulse 2s ease-in-out infinite;
     }
@@ -108,98 +106,20 @@
         width: 260px;
         height: 260px;
       }
-
       .star-caption, .shape-caption {
         font-size: 1.2rem;
       }
     }
-    .cv-star {
-    transform: scale(2.1); /* 白星星为0.7，2.1是其3倍 */
-  }
-</style>
+
+    /* ✅ 黑色 CV 星星默认放大三倍 */
+    .star-shape.cv-star {
+      transform: scale(2.1) !important;
+    }
+  </style>
 </head>
 <body>
   <h1 style="color: white; text-shadow: 0 0 6px black;">Leo Chao Deng</h1>
 
   <div class="circle-column">
 
-    <!-- 白色星星按钮（跳转 https://leo-c-deng.github.io/leochaodeng.html） -->
-    <div class="star-container">
-      <a href="https://leo-c-deng.github.io/leochaodeng.html" class="star-shape back-star">
-        <svg viewBox="0 0 100 100" class="star-svg">
-          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="white" stroke="black" stroke-width="2" />
-        </svg>
-      </a>
-      <div class="star-caption">Back</div>
-    </div>
-
-    <!-- CV 星星按钮（点击变大、变黑、跳转 https://leo-c-deng.github.io/cv.html） -->
-    <div class="star-container">
-      <a href="https://leo-c-deng.github.io/cv.html" target="_blank" class="star-shape cv-star" onclick="growStar(event)">
-        <svg viewBox="0 0 100 100" class="star-svg">
-          <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="grey" stroke="black" stroke-width="2" />
-        </svg>
-      </a>
-      <div class="star-caption">CV</div>
-    </div>
-
-    <!-- 三角 + 圆 组合图形（旋转特效） -->
-    <div class="shape-container">
-      <div class="shape-wrapper triangle-circle">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="30" fill="white" stroke="black" stroke-width="2" />
-          <polygon points="50,15 30,85 70,85" fill="white" stroke="black" stroke-width="2" />
-        </svg>
-      </div>
-      
-    </div>
-
-    <!-- 方形图形（呼吸特效） -->
-<div class="shape-container" style="position: absolute; top: 55%; left: 13%; transform: translate(-50%, -50%);">
-  <div class="shape-wrapper square">
-    <svg viewBox="0 0 100 100">
-      <rect x="20" y="20" width="60" height="60" fill="white" stroke="black" stroke-width="2" />
-    </svg>
-  </div>
-</div>
-</div>
-      
-    </div>
-
-  </div>
-
-  <script>
-  // 页面加载时检查状态
-  window.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('cvStarGrown') === 'true') {
-  const star = document.querySelector('[href="https://leo-c-deng.github.io/cv.html"]');
-  if (star) {
-    star.style.transform = 'scale(0.9)';
-  }
-  const poly = document.getElementById('star-poly');
-  if (poly) poly.classList.add('fade-to-black');
-}
-  });
-    function growStar(event) {
-  event.preventDefault();
-
-  const star = event.currentTarget;
-  star.style.transform = 'scale(1.3)';
-
-  const poly = document.getElementById('star-poly');
-  poly.classList.add('fade-to-black');
-
-  // 保存状态到 localStorage
-  localStorage.setItem('cvStarGrown', 'true');
-
-  const targetURL = star.getAttribute("href");
-  setTimeout(() => {
-    window.location.href = targetURL;
-  }, 1000);
-    }
-  </script>
-</body>
-</html>
-
+    <!-- 白色星

@@ -1,30 +1,73 @@
-<!-- 缩略图 -->
-<img src="cat.png" alt="猫猫" id="thumbnail" style="width: 400px; cursor: pointer;">
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leo Deng – 艺术家主页</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #ffffff;
+      color: #222;
+      padding: 60px 20px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-<!-- 弹出层 -->
-<div id="modal" style="display: none; position: fixed; z-index: 1; padding-top: 60px;
-  left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
-  background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.9);">
-  <span id="close" style="position: absolute; top: 15px; right: 35px;
-    color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
-  <img id="modal-content" style="margin: auto; display: block; width: 80%; max-width: 700px;">
-</div>
+    .circle-button {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #000;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
 
-<script>
-  // 获取元素
-  var modal = document.getElementById("modal");
-  var img = document.getElementById("thumbnail");
-  var modalImg = document.getElementById("modal-content");
-  var span = document.getElementById("close");
+    .circle-button:hover {
+      transform: scale(1.05);
+    }
 
-  // 点击图片，显示弹出层
-  img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-  }
+    .caption {
+      font-size: 0.95rem;
+      color: #777;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
 
-  // 点击关闭按钮，隐藏弹出层
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-</script>
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: background 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Leo Deng</h1>
+
+  <p>
+    Leo Deng 是一位出生于中国、现居澳大利亚的艺术家。  
+    他的创作围绕结构与崩解、控制与失序之间的张力展开，作品涉猎木工、数字制造与低技术组装等媒介。  
+    他受到社会主义及后社会主义背景下的艺术家的启发，探索建筑形式所承载的历史性与意识形态。
+  </p>
+
+  <!-- 圆形图片按钮 -->
+  <a href="https://leodeng-art.github.io/leochaodeng.html" target="_blank">
+    <img src="cat.png" alt="点击查看作品" class="circle-button" />
+  </a>
+
+  <div class="caption">点击猫猫查看我的作品页面</div>
+
+</body>
+</html>

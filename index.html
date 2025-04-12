@@ -91,7 +91,7 @@
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
 
-    /* 彩虹动画填充 */
+    /* 彩虹填充动画 */
     .rainbow-animate {
       animation: rainbow-fill 1s forwards;
     }
@@ -163,8 +163,9 @@
       const poly = document.getElementById('star-poly');
       poly.classList.add('rainbow-animate');
 
+      const targetURL = event.currentTarget.getAttribute("href");
       setTimeout(() => {
-        window.location.href = event.currentTarget.href;
+        window.location.href = targetURL;
       }, 1000);
     }
   </script>

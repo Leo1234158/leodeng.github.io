@@ -14,6 +14,11 @@
       margin: auto;
       line-height: 1.6;
       text-align: center;
+      transition: background-color 1s ease;
+    }
+
+    body.white-bg {
+      background: #fff;
     }
 
     .circle-row {
@@ -49,7 +54,7 @@
       display: inline-block;
       width: 480px;
       height: 480px;
-      transition: transform 0.5s ease;
+      transition: transform 1s ease, filter 1s ease;
       flex-shrink: 0;
       z-index: 1;
       position: relative;
@@ -64,9 +69,14 @@
       fill: orange;
     }
 
-    .star-shape.expanded {
-      transform: scale(4);
-      z-index: 999;
+    .star-shape.expanding {
+      transform: scale(5);
+      transition: transform 1s ease;
+    }
+
+    .star-shape.expanding polygon {
+      fill: black;
+      transition: fill 1s ease;
     }
 
     .caption {
@@ -106,7 +116,7 @@
       </div>
     </a>
 
-    <!-- 五角星按钮，显示“CV”，点击后放大并跳转 -->
+    <!-- 五角星按钮，点击后慢慢放大变黑，背景变白 -->
     <a href="cv.html" target="_blank" class="star-shape" onclick="expandStar(event)">
       <svg viewBox="0 0 100 100" class="star-svg">
         <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
@@ -123,10 +133,11 @@
     function expandStar(event) {
       event.preventDefault();
       const star = event.currentTarget;
-      star.classList.add('expanded');
+      document.body.classList.add('white-bg');
+      star.classList.add('expanding');
       setTimeout(() => {
         window.location.href = star.href;
-      }, 500);
+      }, 1000);
     }
   </script>
 </body>

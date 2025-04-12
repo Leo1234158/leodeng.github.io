@@ -154,7 +154,7 @@
     </div>
 
     <!-- 方形图形（呼吸特效） -->
-<div class="shape-container" style="position: absolute; top: 55%; left: 10%; transform: translate(-50%, -50%);">
+<div class="shape-container" style="position: absolute; top: 55%; left: 13%; transform: translate(-50%, -50%);">
   <div class="shape-wrapper square">
     <svg viewBox="0 0 100 100">
       <rect x="20" y="20" width="60" height="60" fill="white" stroke="black" stroke-width="2" />
@@ -168,19 +168,31 @@
   </div>
 
   <script>
-    function growStar(event) {
-      event.preventDefault();
-
-      const star = event.currentTarget;
-      star.classList.add('growing');
-
+  // 页面加载时检查状态
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('cvStarGrown') === 'true') {
+      const star = document.querySelector('[href="https://leo-c-deng.github.io/cv.html"]');
+      if (star) star.classList.add('growing');
       const poly = document.getElementById('star-poly');
-      poly.classList.add('fade-to-black');
+      if (poly) poly.classList.add('fade-to-black');
+    }
+  });
+    function growStar(event) {
+  event.preventDefault();
 
-      const targetURL = star.getAttribute("href");
-      setTimeout(() => {
-        window.location.href = targetURL;
-      }, 1000);
+  const star = event.currentTarget;
+  star.classList.add('growing');
+
+  const poly = document.getElementById('star-poly');
+  poly.classList.add('fade-to-black');
+
+  // 保存状态到 localStorage
+  localStorage.setItem('cvStarGrown', 'true');
+
+  const targetURL = star.getAttribute("href");
+  setTimeout(() => {
+    window.location.href = targetURL;
+  }, 1000);
     }
   </script>
 </body>

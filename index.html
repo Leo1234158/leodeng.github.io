@@ -54,14 +54,6 @@
       animation: spinToCircle 2s linear infinite;
     }
 
-    .star-caption, .shape-caption {
-      margin-top: 10px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
-    }
-
     .fade-to-black {
       fill: grey;
       animation: toBlack 1s forwards;
@@ -114,10 +106,6 @@
         width: 260px;
         height: 260px;
       }
-
-      .star-caption, .shape-caption {
-        font-size: 1.2rem;
-      }
     }
   </style>
 </head>
@@ -134,7 +122,6 @@
             fill="white" stroke="black" stroke-width="2" />
         </svg>
       </a>
-      <div class="star-caption">Back</div>
     </div>
 
     <!-- 黑色 CV 星星 -->
@@ -145,7 +132,6 @@
             fill="black" stroke="none" />
         </svg>
       </a>
-      <div class="star-caption">CV</div>
     </div>
 
     <!-- 三角圆 -->
@@ -204,13 +190,13 @@
 
           setTimeout(() => {
             window.location.href = star.getAttribute('href');
-          }, 1000); // ⏳ 聚合停留 2.5 秒
+          }, 2500); // 等待 2.5 秒再跳转
           return;
         }
 
         const dx = jumps[i].x;
         const dy = jumps[i].y;
-        star.style.transform = translate(${dx}px, ${dy}px) scale(0.3);
+        star.style.transform = `translate(${dx}px, ${dy}px) scale(0.3)`;
         i++;
         setTimeout(hop, 200);
       }

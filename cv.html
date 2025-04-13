@@ -17,7 +17,7 @@
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="https://leo-c-deng.github.io/assets/css/style.css?v=7ed93192a4bdb73fbce88805869830b8">
 
-  <!-- ⭐ 动画样式 -->
+  <!-- ⭐ 星星跳动动画样式 -->
   <style>
     .logo {
       display: inline-flex;
@@ -29,12 +29,13 @@
     .star-icon {
       width: 24px;
       height: 24px;
-      transition: transform 0.6s ease;
+      animation: pulse 1.6s infinite ease-in-out;
       transform-origin: center center;
     }
 
-    .logo:hover .star-icon {
-      transform: rotate(360deg);
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
     }
   </style>
 
@@ -57,7 +58,7 @@
 </head>
 <body class="post-template">
 
-  <!-- ✅ 顶部导航，星星+back，支持旋转 -->
+  <!-- ✅ 顶部 back，星星跳动 -->
   <header class="top js-header">
     <a class="logo" href="https://leo-c-deng.github.io/">
       <svg class="star-icon" viewBox="0 0 100 100">

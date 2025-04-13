@@ -41,38 +41,13 @@
       position: relative;
     }
 
-    .star-shape.cv-star {
-      animation: none !important;
-    }
-
     .star-shape svg, .shape-wrapper svg {
       width: 100%;
       height: 100%;
     }
 
     .star-shape.back-star {
-      animation: spinToCircle 2s linear infinite;
-    }
-
-    .fade-to-black {
-      fill: grey;
-      animation: toBlack 1s forwards;
-    }
-
-    @keyframes toBlack {
-      0% { fill: grey; }
-      100% { fill: black; }
-    }
-
-    @keyframes spinToCircle {
-      0% {
-        transform: rotate(0deg);
-        clip-path: polygon(50% 0%, 61% 35%, 95% 35%, 67% 57%, 78% 90%, 50% 70%, 22% 90%, 33% 57%, 5% 35%, 39% 35%);
-      }
-      100% {
-        transform: rotate(360deg);
-        clip-path: circle(50% at 50% 50%);
-      }
+      cursor: pointer;
     }
 
     .shape-wrapper.triangle-circle {
@@ -93,19 +68,30 @@
       50% { transform: scale(1.2); }
     }
 
-    .pull-to-center {
-      position: fixed !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) scale(0.2) !important;
-      transition: transform 0.8s ease, top 0.8s ease, left 0.8s ease;
-    }
-
     @media screen and (max-width: 600px) {
       .star-shape, .shape-wrapper {
         width: 260px;
         height: 260px;
       }
+    }
+
+    #cv-content {
+      display: none;
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    #cv-content h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -114,27 +100,27 @@
 
   <div class="circle-column">
 
-    <!-- 白星星 -->
+    <!-- 白星星（点击展开 CV 内容） -->
     <div class="star-container" id="white-star">
-      <a href="#" class="star-shape back-star">
+      <div class="star-shape back-star" onclick="toggleCV()">
         <svg viewBox="0 0 100 100">
           <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
             fill="white" stroke="black" stroke-width="2" />
         </svg>
-      </a>
+      </div>
     </div>
 
-    <!-- 黑色 CV 星星 -->
+    <!-- 黑色星星（无动画无跳转） -->
     <div class="star-container" id="black-star">
-      <a href="https://leo-c-deng.github.io/cv.html" class="star-shape cv-star" onclick="growStar(event)">
+      <div class="star-shape cv-star">
         <svg viewBox="0 0 100 100">
-          <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
+          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
             fill="black" stroke="none" />
         </svg>
-      </a>
+      </div>
     </div>
 
-    <!-- 三角圆 -->
+    <!-- 三角形圆形组合 -->
     <div class="shape-container" id="circle-triangle">
       <div class="shape-wrapper triangle-circle">
         <svg viewBox="0 0 100 100">
@@ -152,56 +138,21 @@
         </svg>
       </div>
     </div>
-
   </div>
 
+  <!-- CV 内容容器 -->
+  <div id="cv-content">
+    <h2>Curriculum Vitae</h2>
+    <p>
+      Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built forms carry historical, ideological, and political weight. Drawing from Bauhaus formalism while resisting clarity, he creates systems that constantly shift between order and breakdown. Cross-cultural experience deeply informs his practice, particularly in how forms persist—and destabilize—within uncertain conditions.
+    </p>
+  </div>
+
+  <!-- 展开/收起 CV 的脚本 -->
   <script>
-    function growStar(event) {
-      event.preventDefault();
-      const star = event.currentTarget;
-      const poly = document.getElementById('star-poly');
-
-      star.style.position = 'absolute';
-      star.style.transition = 'transform 0.3s ease';
-      star.style.transform = 'translate(0px, 0px) scale(0.3)';
-
-      const jumps = [
-        { x: 100, y: -100 },
-        { x: -150, y: 120 },
-        { x: 120, y: -130 },
-        { x: -100, y: 150 }
-      ];
-
-      let i = 0;
-      function hop() {
-        if (i >= jumps.length) {
-          document.getElementById("white-star").classList.add("pull-to-center");
-          document.getElementById("circle-triangle").classList.add("pull-to-center");
-          document.getElementById("square-shape").classList.add("pull-to-center");
-
-          star.style.position = 'fixed';
-          star.style.top = '50%';
-          star.style.left = '50%';
-          star.style.zIndex = '9999';
-          star.style.transition = 'transform 1s ease, top 1s ease, left 1s ease';
-          star.style.transform = 'translate(-50%, -50%) scale(18)';
-
-          if (poly) poly.classList.add('fade-to-black');
-
-          setTimeout(() => {
-            window.location.href = star.getAttribute('href');
-          }, 2500); // 等待 2.5 秒再跳转
-          return;
-        }
-
-        const dx = jumps[i].x;
-        const dy = jumps[i].y;
-        star.style.transform = `translate(${dx}px, ${dy}px) scale(0.3)`;
-        i++;
-        setTimeout(hop, 200);
-      }
-
-      setTimeout(hop, 300);
+    function toggleCV() {
+      const cv = document.getElementById("cv-content");
+      cv.style.display = (cv.style.display === "none") ? "block" : "none";
     }
   </script>
 </body>

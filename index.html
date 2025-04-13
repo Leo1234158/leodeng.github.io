@@ -42,7 +42,7 @@
     }
 
     .star-shape.cv-star {
-      animation: floatXY 10s ease-in-out infinite;
+      animation: none !important;
     }
 
     .star-shape svg, .shape-wrapper svg {
@@ -109,21 +109,4 @@
       100% { transform: translate(0, 0); }
     }
 
-    @media screen and (max-width: 600px) {
-      .star-shape, .shape-wrapper {
-        width: 260px;
-        height: 260px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <h1 style="color: white; text-shadow: 0 0 6px black;">Leo Chao Deng</h1>
-
-  <div class="circle-column">
-
-    <!-- 白星星 -->
-    <div class="star-container" id="white-star">
-      <a href="#" class="star-shape back-star">
-        <svg viewBox="0 0 100 100">
-          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39
+    /* 把动画移*

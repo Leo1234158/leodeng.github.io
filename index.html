@@ -41,13 +41,38 @@
       position: relative;
     }
 
+    .star-shape.cv-star {
+      animation: floatXY 10s ease-in-out infinite;
+    }
+
     .star-shape svg, .shape-wrapper svg {
       width: 100%;
       height: 100%;
     }
 
     .star-shape.back-star {
-      cursor: pointer;
+      animation: spinToCircle 2s linear infinite;
+    }
+
+    .fade-to-black {
+      fill: grey;
+      animation: toBlack 1s forwards;
+    }
+
+    @keyframes toBlack {
+      0% { fill: grey; }
+      100% { fill: black; }
+    }
+
+    @keyframes spinToCircle {
+      0% {
+        transform: rotate(0deg);
+        clip-path: polygon(50% 0%, 61% 35%, 95% 35%, 67% 57%, 78% 90%, 50% 70%, 22% 90%, 33% 57%, 5% 35%, 39% 35%);
+      }
+      100% {
+        transform: rotate(360deg);
+        clip-path: circle(50% at 50% 50%);
+      }
     }
 
     .shape-wrapper.triangle-circle {
@@ -68,30 +93,27 @@
       50% { transform: scale(1.2); }
     }
 
+    .pull-to-center {
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) scale(0.2) !important;
+      transition: transform 0.8s ease, top 0.8s ease, left 0.8s ease;
+    }
+
+    @keyframes floatXY {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(20px, -15px); }
+      50%  { transform: translate(0, -30px); }
+      75%  { transform: translate(-20px, -15px); }
+      100% { transform: translate(0, 0); }
+    }
+
     @media screen and (max-width: 600px) {
       .star-shape, .shape-wrapper {
         width: 260px;
         height: 260px;
       }
-    }
-
-    #cv-content {
-      display: none;
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      color: #000;
-      font-family: sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-
-    #cv-content h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -100,60 +122,8 @@
 
   <div class="circle-column">
 
-    <!-- 白星星（点击展开 CV 内容） -->
+    <!-- 白星星 -->
     <div class="star-container" id="white-star">
-      <div class="star-shape back-star" onclick="toggleCV()">
+      <a href="#" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
-          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="white" stroke="black" stroke-width="2" />
-        </svg>
-      </div>
-    </div>
-
-    <!-- 黑色星星（无动画无跳转） -->
-    <div class="star-container" id="black-star">
-      <div class="star-shape cv-star">
-        <svg viewBox="0 0 100 100">
-          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
-            fill="black" stroke="none" />
-        </svg>
-      </div>
-    </div>
-
-    <!-- 三角形圆形组合 -->
-    <div class="shape-container" id="circle-triangle">
-      <div class="shape-wrapper triangle-circle">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="30" fill="white" stroke="black" stroke-width="2" />
-          <polygon points="50,15 30,85 70,85" fill="white" stroke="black" stroke-width="2" />
-        </svg>
-      </div>
-    </div>
-
-    <!-- 方形 -->
-    <div class="shape-container" id="square-shape" style="position: absolute; top: 55%; left: 13%; transform: translate(-50%, -50%);">
-      <div class="shape-wrapper square">
-        <svg viewBox="0 0 100 100">
-          <rect x="20" y="20" width="60" height="60" fill="white" stroke="black" stroke-width="2" />
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- CV 内容容器 -->
-  <div id="cv-content">
-    <h2>Curriculum Vitae</h2>
-    <p>
-      Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation. Influenced by artists from socialist and post-socialist contexts, his work reflects how built forms carry historical, ideological, and political weight. Drawing from Bauhaus formalism while resisting clarity, he creates systems that constantly shift between order and breakdown. Cross-cultural experience deeply informs his practice, particularly in how forms persist—and destabilize—within uncertain conditions.
-    </p>
-  </div>
-
-  <!-- 展开/收起 CV 的脚本 -->
-  <script>
-    function toggleCV() {
-      const cv = document.getElementById("cv-content");
-      cv.style.display = (cv.style.display === "none") ? "block" : "none";
-    }
-  </script>
-</body>
-</html>
+          <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39

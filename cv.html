@@ -16,14 +16,28 @@
   <meta property="og:url" content="https://leo-c-deng.github.io/cv.html">
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="https://leo-c-deng.github.io/assets/css/style.css?v=7ed93192a4bdb73fbce88805869830b8">
+
+  <!-- ⭐ 动画样式 -->
   <style>
-    .star-icon {
-      transition: transform 0.6s ease;
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      font-size: 18px;
+      gap: 6px;
     }
+
+    .star-icon {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.6s ease;
+      transform-origin: center center;
+    }
+
     .logo:hover .star-icon {
       transform: rotate(360deg);
     }
   </style>
+
   <script type="application/ld+json">
   {
     "@context":"http://schema.org",
@@ -43,10 +57,10 @@
 </head>
 <body class="post-template">
 
-  <!-- ✅ 已改为带动画的 ★ back -->
+  <!-- ✅ 顶部导航，星星+back，支持旋转 -->
   <header class="top js-header">
-    <a class="logo" href="https://leo-c-deng.github.io/" style="display: inline-flex; align-items: center; font-size: 18px;">
-      <svg class="star-icon" viewBox="0 0 100 100" width="24" height="24" style="margin-right: 6px;">
+    <a class="logo" href="https://leo-c-deng.github.io/">
+      <svg class="star-icon" viewBox="0 0 100 100">
         <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35" fill="black" />
       </svg>
       back

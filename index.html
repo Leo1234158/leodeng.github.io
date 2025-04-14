@@ -117,7 +117,6 @@
       100% { transform: translate(0, 0); }
     }
 
-    /* 黑星星容器漂浮动画 */
     #black-star {
       animation: floatXY 10s ease-in-out infinite;
     }
@@ -136,7 +135,7 @@
 
   <div class="circle-column">
 
-    <!-- 白星星 + 黑色 "CV" -->
+    <!-- 白星星 + 灰色大字 "CV" -->
     <div class="star-container" id="white-star" style="flex-direction: row; gap: 16px;">
       <a href="#" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
@@ -144,10 +143,10 @@
             fill="white" stroke="black" stroke-width="2" />
         </svg>
       </a>
-      <span style="color: black; font-size: 24px;">CV</span>
+      <span style="color: #666; font-size: 48px;">CV</span>
     </div>
 
-    <!-- 黑星星 + 黑色 "Work"（点击跳转） -->
+    <!-- 黑星星 + 灰色大字 "Work" -->
     <div class="star-container" id="black-star" style="flex-direction: row; gap: 16px;">
       <a href="https://leo-c-deng.github.io/cv.html" class="star-shape cv-star" onclick="growStar(event)">
         <svg viewBox="0 0 100 100">
@@ -155,7 +154,7 @@
             fill="black" stroke="none" />
         </svg>
       </a>
-      <span style="color: black; font-size: 24px;">Work</span>
+      <span style="color: #666; font-size: 48px;">Work</span>
     </div>
 
     <!-- 三角圆 -->
@@ -179,7 +178,7 @@
 
   </div>
 
-  <!-- 点击跳转动画 -->
+  <!-- 动画跳转脚本 -->
   <script>
     function growStar(event) {
       event.preventDefault();

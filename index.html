@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Leo Chao Deng – 艺术家主页</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: sans-serif;
@@ -121,6 +122,12 @@
       animation: floatXY 10s ease-in-out infinite;
     }
 
+    .orbitron-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 48px;
+      color: black;
+    }
+
     @media screen and (max-width: 600px) {
       .star-shape, .shape-wrapper {
         width: 260px;
@@ -135,7 +142,7 @@
 
   <div class="circle-column">
 
-    <!-- 白星星 + 灰色大字 "CV" -->
+    <!-- 白星星 + CV -->
     <div class="star-container" id="white-star" style="flex-direction: row; gap: 16px;">
       <a href="#" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
@@ -143,10 +150,10 @@
             fill="white" stroke="black" stroke-width="2" />
         </svg>
       </a>
-      <span style="color: #666; font-size: 48px;">CV</span>
+      <span class="orbitron-label">CV</span>
     </div>
 
-    <!-- 黑星星 + 灰色大字 "Work" -->
+    <!-- 黑星星 + Work -->
     <div class="star-container" id="black-star" style="flex-direction: row; gap: 16px;">
       <a href="https://leo-c-deng.github.io/cv.html" class="star-shape cv-star" onclick="growStar(event)">
         <svg viewBox="0 0 100 100">
@@ -154,7 +161,7 @@
             fill="black" stroke="none" />
         </svg>
       </a>
-      <span style="color: #666; font-size: 48px;">Work</span>
+      <span class="orbitron-label">Work</span>
     </div>
 
     <!-- 三角圆 -->
@@ -178,7 +185,7 @@
 
   </div>
 
-  <!-- 动画跳转脚本 -->
+  <!-- 动画跳转 -->
   <script>
     function growStar(event) {
       event.preventDefault();

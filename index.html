@@ -17,7 +17,6 @@
       text-align: center;
       overflow-x: hidden;
     }
-
     h1 {
       color: white;
       font-size: 36px;
@@ -26,7 +25,6 @@
       position: relative;
       margin-bottom: 40px;
     }
-
     .circle-column {
       display: flex;
       flex-direction: column;
@@ -34,14 +32,12 @@
       gap: 60px;
       margin-top: 120px;
     }
-
     .star-container, .shape-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       transition: all 1s ease;
     }
-
     .star-shape, .shape-wrapper {
       width: 320px;
       height: 320px;
@@ -50,30 +46,24 @@
       z-index: 1;
       position: relative;
     }
-
     .star-shape.cv-star {
       animation: none !important;
     }
-
     .star-shape svg, .shape-wrapper svg {
       width: 100%;
       height: 100%;
     }
-
     .star-shape.back-star {
       animation: spinToCircle 2s linear infinite;
     }
-
     .fade-to-black {
       fill: grey;
       animation: toBlack 1s forwards;
     }
-
     @keyframes toBlack {
       0% { fill: grey; }
       100% { fill: black; }
     }
-
     @keyframes spinToCircle {
       0% {
         transform: rotate(0deg);
@@ -84,25 +74,20 @@
         clip-path: circle(50% at 50% 50%);
       }
     }
-
     .shape-wrapper.triangle-circle {
       animation: spin 4s linear infinite;
     }
-
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
     .shape-wrapper.square {
       animation: pulse 2s ease-in-out infinite;
     }
-
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.2); }
     }
-
     .pull-to-center {
       position: fixed !important;
       top: 50% !important;
@@ -110,7 +95,6 @@
       transform: translate(-50%, -50%) scale(0.2) !important;
       transition: transform 0.8s ease, top 0.8s ease, left 0.8s ease;
     }
-
     @keyframes floatXY {
       0%   { transform: translate(0, 0); }
       25%  { transform: translate(20px, -15px); }
@@ -118,42 +102,29 @@
       75%  { transform: translate(-20px, -15px); }
       100% { transform: translate(0, 0); }
     }
-
     #black-star {
       animation: floatXY 10s ease-in-out infinite;
     }
-
     .orbitron-label {
       font-family: 'Orbitron', sans-serif;
       font-size: 48px;
       color: black;
     }
-
     .rotating {
       display: inline-block;
-      animation: rotateText 8s linear infinite; /* 慢速旋转 */
+      animation: rotateText 8s linear infinite;
     }
-
     @keyframes rotateText {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
-    @media screen and (max-width: 600px) {
-      .star-shape, .shape-wrapper {
-        width: 260px;
-        height: 260px;
-      }
-    }
   </style>
 </head>
 <body>
-
   <h1>Leo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chao&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deng</h1>
-
   <div class="circle-column">
 
-    <!-- 白星星 + CV（慢速旋转） -->
+    <!-- 白星星 + CV（慢转） -->
     <div class="star-container" id="white-star" style="flex-direction: row; gap: 16px;">
       <a href="#" class="star-shape back-star">
         <svg viewBox="0 0 100 100">
@@ -164,9 +135,9 @@
       <span class="orbitron-label rotating">CV</span>
     </div>
 
-    <!-- 黑星星 + Work -->
+    <!-- 黑星星 + Work（带跳转动画） -->
     <div class="star-container" id="black-star" style="flex-direction: row; gap: 16px;">
-      <a href="https://leo-c-deng.github.io/cv.html" class="star-shape cv-star" onclick="growStar(event)">
+      <a href="cv.html" class="star-shape cv-star" onclick="growStar(event)">
         <svg viewBox="0 0 100 100">
           <polygon id="star-poly" points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35"
             fill="black" stroke="none" />
@@ -185,7 +156,7 @@
       </div>
     </div>
 
-    <!-- 方形 + BIO（点击方块跳转） -->
+    <!-- 方形 + BIO（跳转 bio.html） -->
     <div class="shape-container" id="square-shape" style="position: absolute; top: 55%; left: 13%; transform: translate(-50%, -50%);">
       <a href="bio.html" class="shape-wrapper square" style="text-decoration: none;">
         <svg viewBox="0 0 100 100">
@@ -194,10 +165,9 @@
       </a>
       <span class="orbitron-label">BIO</span>
     </div>
-
   </div>
 
-  <!-- 动画跳转 -->
+  <!-- 黑星星跳转动画脚本 -->
   <script>
     function growStar(event) {
       event.preventDefault();
@@ -239,4 +209,13 @@
 
         const dx = jumps[i].x;
         const dy = jumps[i].y;
-        star.style.transform =
+        star.style.transform = `translate(${dx}px, ${dy}px) scale(0.3)`;
+        i++;
+        setTimeout(hop, 200);
+      }
+
+      setTimeout(hop, 300);
+    }
+  </script>
+</body>
+</html>

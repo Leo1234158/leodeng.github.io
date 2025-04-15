@@ -2,19 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Test Works</title>
+  <title>WORKS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       background-color: black;
       color: white;
       font-family: sans-serif;
-      padding: 40px;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: grey;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-button:hover {
+      color: white;
+    }
+
+    .back-button svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 80px;
+      font-size: 28px;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid white;
+    }
+
+    figcaption {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.8;
     }
   </style>
 </head>
 <body>
-  <h1>Violence, Softly (2025)</h1>
-  <p>Clay, plastic branches, photo paper</p>
-  <img src="https://leo-c-deng.github.io/media/posts/1/IMG_7954-2.jpeg" alt="Work" width="400">
-</body>
-</html>
+
+  <!-- 返回按钮 -->
+  <a href="index.html" class="back-button">
+    <svg viewBox="0 0 100 100">
+      <polygon points="50,5 61,35 95,35 67,57 78,90 50,70 22,90 33,57 5,35 39,35" fill="white"/>
+    </svg>
+    Back / 返回
+  </a>
+
+  <!-- 主内容 -->
+  <h1>WORKS</h1>
+  <div class="content">
+    <figure>
+      <img src="https://leo-c-deng.github.io/media/posts/1/IMG_7954-2.jpeg" alt="Violence, Soft_

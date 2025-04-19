@@ -3,12 +3,42 @@
     <title>Leo(Chao)Deng</title>
     <link href="https://leo-c-deng.github.io/feed.xml" rel="self" />
     <link href="https://leo-c-deng.github.io" />
-    <updated>2025-04-14T14:12:21+10:00</updated>
+    <updated>2025-04-19T17:54:55+10:00</updated>
     <author>
         <name>Leo Deng</name>
     </author>
     <id>https://leo-c-deng.github.io</id>
 
+    <entry>
+        <title>CV</title>
+        <author>
+            <name>Leo Deng</name>
+        </author>
+        <link href="https://leo-c-deng.github.io/cv-2.html"/>
+        <id>https://leo-c-deng.github.io/cv-2.html</id>
+
+        <updated>2025-04-19T17:54:55+10:00</updated>
+            <summary>
+                <![CDATA[
+                    Education Queensland College of Art, Griffith University Bachelor of Fine Art (Sculpture) 2023 – Present University of Queensland Bachelor of Arts (Art History, Incomplete) 2021 – 2022 Upcoming Exhibition 2026 – Violence, Group exhibition, Webb Gallery, Brisbane (Jan 19 – Feb 1)
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p><strong>Education </strong></p>
+<p class="p1"><span class="s1">Queensland College of Art, Griffith University</span></p>
+<p class="p1"><span class="s3">Bachelor of Fine Art (Sculpture)</span></p>
+<p class="p1"><span class="s2">2023 – Present</span></p>
+<p> </p>
+<p class="p1"><span class="s1">University of Queensland</span></p>
+<p class="p1"><span class="s3">Bachelor of Arts (Art History, Incomplete)</span></p>
+<p class="p1"><span class="s2">2021 – 2022</span></p>
+<p> </p>
+<p class="p1"><strong><span class="s1">Upcoming Exhibition</span></strong></p>
+<p class="p1"><span class="s1">2026 – Violence</span><span class="s2">, Group exhibition, Webb Gallery, Brisbane (Jan 19 – Feb 1)</span></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Bio</title>
         <author>

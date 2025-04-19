@@ -9,10 +9,13 @@
       background: black;
       color: white;
       font-family: sans-serif;
-      max-width: 800px;
-      margin: 100px auto 40px;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 20px;
-      line-height: 1.8;
+      box-sizing: border-box;
     }
 
     .back-button {
@@ -29,9 +32,10 @@
       color: white;
     }
 
-    h1 {
+    .bio-text {
+      max-width: 800px;
       text-align: center;
-      margin-bottom: 40px;
+      line-height: 1.8;
     }
   </style>
 </head>
@@ -39,11 +43,10 @@
 
   <a href="index.html" class="back-button">← Back / 返回</a>
 
-  <h1>Bio</h1>
-
-  <p>Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation.</p>
-
-  <p>Influenced by artists from socialist and post-socialist contexts, Leo’s work reflects how built forms embody history, power, and ideology. His cross-cultural background further informs his approach to form, labor, and technology.</p>
+  <div class="bio-text">
+    <p>Leo Deng is a Chinese artist currently living and working in Australia. His practice explores the tension between structure, collapse, and control through woodworking, digital fabrication, lo-fi construction, and material experimentation.</p>
+    <p>Influenced by artists from socialist and post-socialist contexts, Leo’s work reflects how built forms embody history, power, and ideology. His cross-cultural background further informs his approach to form, labor, and technology.</p>
+  </div>
 
 </body>
 </html>
